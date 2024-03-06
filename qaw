@@ -7,11 +7,21 @@ from time import sleep
 HOMEDIR = os.path.expanduser("~")
 DIRECTORY = os.path.join(HOMEDIR, "Pictures/wallpaper/")
 
+OPTIONS = {
+    '^':"max",
+    '#':"tile",
+    '*':"fill",
+    '-':"scale"}
+
 def ChangeWallpaper(wallpaper:str):
 
+    mode = "center"
+    if wallpaper[0] in OPTIONS:
+        mode = OPTIONS[0]
+
     out = subprocess.run(
-            ['feh', '--no-fehbg', '--bg-center',
-             '{}{}'.format(DIRECTORY, wallpaper)])
+            ['feh', '--no-fehbg', '--bg-{}',
+             '{}{}'.format(mode, DIRECTORY, wallpaper)])
 
     if not(out.check_returncode()):
         sleep(300)

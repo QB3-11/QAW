@@ -1,0 +1,19 @@
+#!/usr/bin/python3
+
+import os
+import subprocess
+from time import sleep
+
+HOMEDIR = os.path.expanduser("~")
+DIRECTORY = os.path.join(HOMEDIR, "Pictures/wallpaper/")
+
+WALLPAPERS = os.listdir(path=DIRECTORY)
+
+while True:
+
+    for image in WALLPAPERS:
+        subprocess.run(
+                ['feh', '--no-fehbg', '--bg-scale',
+                '/home/qb3/Pictures/wallpaper/{}'.format(image)])
+        sleep(300)
+

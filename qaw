@@ -7,14 +7,23 @@ from time import sleep
 HOMEDIR = os.path.expanduser("~")
 DIRECTORY = os.path.join(HOMEDIR, "Pictures/wallpaper/")
 
+def ChangeWallpaper(wallpaper:str):
 
-while True:
+    out = subprocess.run(
+            ['feh', '--no-fehbg', '--bg-center',
+             '{}{}'.format(DIRECTORY, wallpaper)])
 
-    WALLPAPERS = os.listdir(path=DIRECTORY)
-
-    for image in WALLPAPERS:
-        subprocess.run(
-                ['feh', '--no-fehbg', '--bg-center',
-                '/home/qb3/Pictures/wallpaper/{}'.format(image)])
+    if not(out.check_returncode()):
         sleep(300)
+
+    else:
+        return "Couldn't Set Wallpaper"
+
+if __name__ == "__main__":
+
+    while True:
+
+        WALLPAPERS = os.listdir(path=DIRECTORY)
+        for image in WALLPAPERS:
+            ChangeWallpaper(image)
 

@@ -7,9 +7,10 @@ from time import sleep
 HOMEDIR = os.path.expanduser("~")
 DIRECTORY = os.path.join(HOMEDIR, "Pictures/wallpaper/")
 
-WALLPAPERS = os.listdir(path=DIRECTORY)
 
 while True:
+
+    WALLPAPERS = os.listdir(path=DIRECTORY)
 
     for image in WALLPAPERS:
         subprocess.run(

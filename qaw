@@ -14,7 +14,7 @@ while True:
 
     for image in WALLPAPERS:
         subprocess.run(
-                ['feh', '--no-fehbg', '--bg-scale',
+                ['feh', '--no-fehbg', '--bg-center',
                 '/home/qb3/Pictures/wallpaper/{}'.format(image)])
         sleep(300)
 

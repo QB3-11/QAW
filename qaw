@@ -20,8 +20,8 @@ def ChangeWallpaper(wallpaper:str):
         mode = OPTIONS[0]
 
     out = subprocess.run(
-            ['feh', '--no-fehbg', '--bg-{}',
-             '{}{}'.format(mode, DIRECTORY, wallpaper)])
+            ['feh', '--no-fehbg', '--bg-{}'.format(mode),
+             '{}{}'.format(DIRECTORY, wallpaper)])
 
     if not(out.check_returncode()):
         sleep(300)

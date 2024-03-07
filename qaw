@@ -11,7 +11,7 @@ OPTIONS = {
     '^':"max",
     '#':"tile",
     '*':"fill",
-    '-':"scale"}
+    '%':"scale"}
 
 def ChangeWallpaper(wallpaper:str):
 

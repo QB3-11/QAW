@@ -13,14 +13,18 @@ OPTIONS = {
     '*':"fill",
     '%':"scale"}
 
-def ChangeWallpaper(wallpaper:str):
+def GetScale(wallpaper:str):
 
     mode = "center"
     if wallpaper[0] in OPTIONS:
         mode = OPTIONS[0]
 
+    return mode
+
+def ChangeWallpaper(wallpaper:str):
+
     out = subprocess.run(
-            ['feh', '--no-fehbg', '--bg-{}'.format(mode),
+            ['feh', '--no-fehbg', '--bg-{}'.format(GetScale(wallpaper)),
              '{}{}'.format(DIRECTORY, wallpaper)])
 
     if not(out.check_returncode()):
